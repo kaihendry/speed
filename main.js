@@ -1,6 +1,6 @@
 function setGet() {
 	var devices = document.getElementById("devices").value;
-	window.location = '//' + window.location.host + '?' + JSON.stringify(devices);
+	window.location = '//' + window.location.host + '?' + devices;
 }
 
 function drawChart() {
@@ -11,8 +11,8 @@ function drawChart() {
 	d = JSON.parse(d);
 	console.log(d);
 	// If I don't parse twice, it doesn't seem to work!
-	d = JSON.parse(d);
-	console.log(d);
+	// d = JSON.parse(d);
+	// console.log(d);
 	a = [["Device","Download","Upload"]];
 	var data = google.visualization.arrayToDataTable(a.concat(d));
 
