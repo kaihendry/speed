@@ -6,8 +6,9 @@ function setGet() {
 function drawChart() {
 	// Source: https://en.wikipedia.org/wiki/List_of_device_bandwidths
 	d = decodeURI(window.location.search.substr(1));
-	if (! d) { console.log("d is empty"); setGet(); }
-	console.log(d);
+	if (! d) { console.log("d is empty"); setGet(); } else {
+	document.getElementById("devices").value = d;
+	}
 	d = JSON.parse(d);
 	console.log(d);
 	// If I don't parse twice, it doesn't seem to work!
