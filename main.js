@@ -72,7 +72,7 @@ function drawChart() {
 	}]);
 
 	var options = {
-		title: 'Speeds compared',
+		// title: 'Speeds compared',
 		vAxis: {
 			title: 'Technology at theoretical limits',
 			ticks: ticks
