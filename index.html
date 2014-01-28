@@ -6,6 +6,16 @@
 <style>
 body { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
 output { font-size: 4em; }
+input[type='range'] {
+	-webkit-appearance: none;
+	background-color: gray;
+}
+input[type='range']::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background-color: #444;
+	width: 15px;
+	height: 20px;
+}
 </style>
 <script src="https://www.google.com/jsapi"></script>
 <script src="main.js"></script>
@@ -19,7 +29,7 @@ oninput="MBps.value = r.valueAsNumber;
 bps.value = r.valueAsNumber * 8000000;
 Mbps.value = r.valueAsNumber * 8;
 kBps.value = r.valueAsNumber * 1000;">
-  <input style="width: 100%" step="0.1" name="r" id="speedrange" type="range" min="0" max="100" value="0">
+  <input style="width: 100%;" step="0.1" name="r" id="speedrange" type="range" min="0" max="100" value="0">
   <output for="speedrange" name="MBps">0</output> MBps or MB/s
   <output for="speedrange" name="bps">0</output> bps
   <output for="speedrange" name="Mbps">0</output> Mbps
@@ -32,6 +42,10 @@ kBps.value = r.valueAsNumber * 1000;">
 <button onclick="setGet()">DrawChart</button>
 
 <p><a href="http://www.bbc.co.uk/news/technology-25840502">1.4 (terabits per second) = 183 500.8 megabytes per second</a>
+<pre>
+x220:~$ iw dev wlan0 link | grep bitrate
+        tx bitrate: 162.0 MBit/s MCS 12 40MHz
+</pre>
 <p><a href="https://github.com/kaihendry/speed">MIT licensed source</a></p>
 
 </body>
