@@ -24,16 +24,21 @@ input[type='range']::-webkit-slider-thumb {
 
 <div id="chart_div" style="width: 1200px; height: 500px;"></div>
 
-<form onsubmit="return false"
-oninput="MBps.value = r.valueAsNumber;
-bps.value = r.valueAsNumber * 8000000;
-Mbps.value = r.valueAsNumber * 8;
-kBps.value = r.valueAsNumber * 1000;">
+
+<form id = "speedForm"
+    oninput="MBps.value = r.valueAsNumber;
+    bps.value = r.valueAsNumber * 8 * 1000 * 1000;
+    Mbps.value = r.valueAsNumber * 8;
+    kBps.value = r.valueAsNumber * 1000;
+    kiBps.value = r.valueAsNumber * 1000 / 1024;
+    MiBps.value = r.valueAsNumber * (1000 * 1000) / (1024 * 1024);">
   <input style="width: 100%;" step="0.1" name="r" id="speedrange" type="range" min="0" max="200" value="0">
   <output for="speedrange" name="MBps">0</output> MBps or MB/s
   <output for="speedrange" name="bps">0</output> bps
   <output for="speedrange" name="Mbps">0</output> Mbps
   <output for="speedrange" name="kBps">0</output> kBps or kB/s
+  <output for="speedrange" name="kiBps">0</output> kiBps
+  <output for="speedrange" name="MiBps">0</output> MiBps
 </form>
 
 <textarea style="width: 100%; border-style: inset; border-width: 2px;" id=devices rows=3>
@@ -48,5 +53,10 @@ x220:~$ iw dev wlan0 link | grep bitrate
 </pre>
 <p><a href="https://github.com/kaihendry/speed">MIT licensed source</a></p>
 
+<script language = "javascript">
+    var speedForm = document.getElementById('speedForm');
+
+    speedForm.addEventListener('submit', function() { return false; });
+</script>
 </body>
 </html>
