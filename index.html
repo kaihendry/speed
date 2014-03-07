@@ -6,16 +6,36 @@
 <style>
 body { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
 output { font-size: 3em; }
-input[type='range'] {
-	-webkit-appearance: none;
-	background-color: gray;
-}
-input[type='range']::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	background-color: #444;
-	width: 15px;
-	height: 20px;
-}
+
+.form-range-control {
+  margin: 0 auto;
+  background-color: #afe0fc;
+  padding: 2.5em;
+  border-radius: 5px;
+ }
+ .form-range-control input[type="range"] {
+  -webkit-appearance: none;
+  background-color: white;
+  height: 3px;
+  border-radius: 1px;width:100%; 
+ }
+ .form-range-control input[type="range"]:focus {
+  outline: none; 
+ }
+ .form-range-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #078dd8;
+  border-radius: 50%;
+  cursor: -moz-grab;
+  cursor: -webkit-grab; }
+.form-range-control input[type="range"]::-webkit-slider-thumb:active, .form-range-control input[type="range"]::-webkit-slider-thumb:focus {
+  background: #056da7;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing; 
+ }
+
 </style>
 <script src="https://www.google.com/jsapi"></script>
 <script src="main.js"></script>
@@ -32,7 +52,9 @@ input[type='range']::-webkit-slider-thumb {
     kBps.value = parseFloat(r.valueAsNumber * 1000).toFixed(0);
     kiBps.value = parseFloat(r.valueAsNumber * 1000 / 1024).toFixed(2);
     MiBps.value = parseFloat(r.valueAsNumber * (1000 * 1000) / (1024 * 1024)).toFixed(2);">
+<div class="form-range-control">
   <input style="width: 100%;" step="0.1" name="r" id="speedrange" type="range" min="0" max="200" value="0">
+</div>
   <output for="speedrange" name="MBps">0</output> MBps or MB/s
   <output for="speedrange" name="bps">0</output> bps
   <output for="speedrange" name="Mbps">0</output> Mbps
