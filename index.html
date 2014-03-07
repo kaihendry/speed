@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8" />
 <title>Internet Speed comparison</title>
-<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
 <style>
 body { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
 output { font-size: 3em; }
@@ -54,7 +53,7 @@ output { font-size: 3em; }
     kiBps.value = parseFloat(r.valueAsNumber * 1000 / 1024).toFixed(2);
     MiBps.value = parseFloat(r.valueAsNumber * (1000 * 1000) / (1024 * 1024)).toFixed(2);">
 <div class="form-range-control">
-  <input style="width: 100%;" step="0.1" name="r" id="speedrange" type="range" min="0" max="200" value="0">
+  <input style="width: 100%;" step="0.1" name="r" id="speedrange" type="range" min="0" max="200" value="50">
 </div>
   <output for="speedrange" name="MBps">0</output> MBps or MB/s
   <output for="speedrange" name="bps">0</output> bps
